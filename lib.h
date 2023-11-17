@@ -13,8 +13,3 @@ char get1() {
 
     return c[0];
 }
-
-int sizeOfArray() {
-
-    
-}
