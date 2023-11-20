@@ -39,7 +39,7 @@ int main() {
 
     unsigned char blankCheck = 0;
 
-    printf("Welcome to Jackson's Word Helper! (1.2 / The Pattern Recognizer Update)\n");
+    printf("Welcome to Jackson's Word Helper! (1.2.1 / The Pattern Recognition Update)\n");
     printf("Enter Ctrl + Z into the terminal to end.\n");
     printf("-----------------------------------------\n\n");
 
@@ -129,19 +129,19 @@ int main() {
         printf("%5d spaces.\n", sc);
 
         if(patternFinding) {
-            if(found >= 2)
+            if(found > 2)
                 printf("Found %d matching patterns at lines", found);
             else if(found == 0)
                 printf("Couldn't find any matching patterns.");
-            else
-                printf("Found 1 matching pattern in line %d", foundAt[0]);
+            else if(found == 1)
+                printf("Found 1 matching pattern in line %d.", foundAt[0]);
+            else if(found == 2)
+                printf("Found 2 matching patterns in lines %d and %d.", foundAt[0], foundAt[1]);
 
-        if(found > 0)
+        if(found > 2)
             for(int i = 0; i <= foundPoint; i++) {
 
-                if(i == foundPoint && found == 1)
-                    printf(" %d.", foundAt[i]);
-                else if(i == foundPoint)
+                if(i == foundPoint)
                     printf(" and %d.", foundAt[i]);
                 else
                     printf(" %d,", foundAt[i]);
