@@ -1,6 +1,6 @@
 /*
-This program returns back a line if it contains whatever is in the pattern array.
-It will also tell you the rightmost occurrence of the pattern in the line.
+ *  This program returns back a line if it contains whatever is in the pattern array.
+ *  It will also tell you the rightmost occurrence of the pattern in the line.
 */
 
 int testLine(char s[], char t[]) {

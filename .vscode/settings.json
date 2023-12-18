@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "patternfind.h": "c",
+        "choices.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "enabledIfIncludesResolve",
+    "cSpell.words": [
+        "Morgun"
+    ]
+}

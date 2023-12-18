@@ -4,24 +4,25 @@
 #include "patternFind.h"
 
 /*
-    Print the amount of characters and other things correctly.
-    Organize your variables, Geez.
+ *  Print the amount of characters and other things correctly.
+ *  Organize your variables, Geez.
 */
 
 int main() {
 
     char c;
 
-    long cc = 0; //character count
-    long nc = 0; //new line count
-    long tc = 0; //tab count
-    long sc = 0; //space count
-    long wc = 0; //word count
-    short wl = 0;//temporary word length
-    char pcount[99999];//whole paragraph count.
-    long pc = 0; //how long the paragraph is.
-    long nwcount[10];//word length count
-    //pattern find variables
+    long cc = 0; // character count
+    long nc = 0; // new line count
+    long tc = 0; // tab count
+    long sc = 0; // space count
+    long wc = 0; // word count
+    short wl = 0;// temporary word length
+    char pcount[99999];// whole paragraph count.
+    long pc = 0; // how long the paragraph is.
+    long nwcount[10];// word length count
+    
+    // pattern find variables
     unsigned char patternFinding = 0;
     unsigned int patternP = 0;
     char pattern[100];
@@ -43,7 +44,7 @@ int main() {
     printf("Enter Ctrl + Z into the terminal to end.\n");
     printf("-----------------------------------------\n\n");
 
-    //Pattern Finding
+    // Pattern Finding
     printf("Would you like to search lines for text? (Y/N): ");
     if((c = get1()) == 'y' || c == 'Y') {
         patternFinding = 1;
@@ -55,7 +56,7 @@ int main() {
         printf("Currently searching for %s.\n\n", pattern);
     }
     
-    //Word Helper
+    // Word Helper
 
     while((c = getchar()) != EOF) {
 
@@ -117,7 +118,7 @@ int main() {
 
     foundPoint--;
     
-    //Printing the results
+    // Printing the results
         printf("\nWhat you wrote but spell corrected:\n-----------------------------------------\n\n");
         printf("%s\n", pcount);
         printf("-----------------------------------------");
