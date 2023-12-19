@@ -40,7 +40,7 @@ int main() {
 
     unsigned char blankCheck = 0;
 
-    printf("Welcome to Jackson's Word Helper! (1.2.1 / The Pattern Recognition Update)\n");
+    printf("Welcome to Jackson's Word Helper! (1.3 / The File Save Update.) Also the last one, maybe.)\n");
     printf("Enter Ctrl + Z into the terminal to end.\n");
     printf("-----------------------------------------\n\n");
 
@@ -55,6 +55,8 @@ int main() {
         pattern[patternP] = '\0';
         printf("Currently searching for %s.\n\n", pattern);
     }
+    else   
+        printf("Searching for nothing.\n\n");
     
     // Word Helper
 
@@ -160,8 +162,28 @@ int main() {
             }
         }
 
-    printf("\nPress Enter to Exit:");
-    scanf("Exit Check");
+
+    // saving the text
+    printf("\nWould you like to save the spell corrected text?: ");
+    printf("\n(Y / N):");
+
+    char response;
+    scanf("%c", &response);
+
+    if(response == 'y' || response == 'Y') {
+        char name[15];
+        printf("What would you like to name the file?: ");
+        getName(name, 12);
+        append(name, ".txt");
+
+        FILE *text = fopen(name, "w");
+        fprintf(text, "%s", pcount);
+
+        // exit check
+        printf("\nPress Enter to Exit:");
+        scanf("Exit Check");
+    }
+
 
     return 0;
 }
