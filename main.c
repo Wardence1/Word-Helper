@@ -41,7 +41,15 @@ int main() {
     unsigned char blankCheck = 0;
 
     printf("Welcome to Jackson's Word Helper! (1.3 / The File Save Update.) Also the last one, maybe.)\n");
-    printf("Enter Ctrl + Z into the terminal to end.\n");
+
+    // Check if the device is Windows or Linux
+    #if defined(_WIN64) || defined(_WIN32)
+        printf("(Enter Ctrl + Z into the terminal to end.)"\n);
+    #endif
+
+    #ifdef __unix__
+        printf("(Enter Ctrl + D into the terminal to end.)\n");
+    #endif
     printf("-----------------------------------------\n\n");
 
     // Pattern Finding
@@ -61,6 +69,7 @@ int main() {
     // Word Helper
 
     while((c = getchar()) != EOF) {
+
 
         if(c == ' ') {
             
@@ -125,11 +134,11 @@ int main() {
         printf("%s\n", pcount);
         printf("-----------------------------------------");
 
-        printf("\n%5d words.\n", wc);
-        printf("%5d characters.\n", cc);
-        printf("%5d tabs.\n", tc);
-        printf("%5d new lines.\n", nc);
-        printf("%5d spaces.\n", sc);
+        printf("\n%5ld words.\n", wc);
+        printf("%5ld characters.\n", cc);
+        printf("%5ld tabs.\n", tc);
+        printf("%5ld new lines.\n", nc);
+        printf("%5ld spaces.\n", sc);
 
         if(patternFinding) {
             if(found > 2)
@@ -156,14 +165,15 @@ int main() {
         for(int i = 1; i < 10; i++) {
 
             if(i == 9) {
-                printf(" %d.\n", nwcount[i]);
+                printf(" %ld.\n", nwcount[i]);
             } else {
-                printf(" %d", nwcount[i]);
+                printf(" %ld", nwcount[i]);
             }
         }
 
-
+    
     // saving the text
+#if defined(_WIN64) || defined(_WIN32)
     printf("\nWould you like to save the spell corrected text?: ");
     printf("\n(Y / N):");
 
@@ -183,7 +193,7 @@ int main() {
         printf("\nPress Enter to Exit:");
         scanf("Exit Check");
     }
-
+#endif
 
     return 0;
 }
