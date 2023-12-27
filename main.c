@@ -44,7 +44,7 @@ int main() {
 
     // Check if the device is Windows or Linux
     #if defined(_WIN64) || defined(_WIN32)
-        printf("(Enter Ctrl + Z into the terminal to end.)"\n);
+        printf("(Enter Ctrl + Z into the terminal to end.)\n");
     #endif
 
     #ifdef __unix__
