@@ -40,7 +40,7 @@ int main() {
 
     unsigned char blankCheck = 0;
 
-    printf("Welcome to Jackson's Word Helper! (1.3 / The File Save Update.) Also the last one, maybe.)\n");
+    printf("Welcome to Jackson's Word Helper! (1.3.1 / Linux Support Update.)\n");
 
     // Check if the device is Windows or Linux
     #if defined(_WIN64) || defined(_WIN32)
