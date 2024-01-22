@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "lib.h"
 #include "patternFind.h"
 
@@ -18,9 +19,9 @@ int main() {
     long sc = 0; // space count
     long wc = 0; // word count
     short wl = 0;// temporary word length
-    char pcount[99999];// whole paragraph count.
+    char *pcount = malloc(sizeof(char)*99999);// whole paragraph count.
     long pc = 0; // how long the paragraph is.
-    long nwcount[10];// word length count
+    long *nwcount = malloc(sizeof(long) * 10);// word length count
     
     // pattern find variables
     unsigned char patternFinding = 0;
@@ -40,7 +41,7 @@ int main() {
 
     unsigned char blankCheck = 0;
 
-    printf("Welcome to Jackson's Word Helper! (1.3.1 / Linux Support Update.)\n");
+    printf("Welcome to Jackson's Word Helper! (1.4 / Linux Support Update)\n");
 
     // Check if the device is Windows or Linux
     #if defined(_WIN64) || defined(_WIN32)
@@ -48,7 +49,7 @@ int main() {
     #endif
 
     #ifdef __unix__
-        printf("(Enter Ctrl + D into the terminal to end.)\n");
+        printf("(Enter ^ into the terminal to end.)\n");
     #endif
     printf("-----------------------------------------\n\n");
 
@@ -67,9 +68,12 @@ int main() {
         printf("Searching for nothing.\n\n");
     
     // Word Helper
-
+    #if defined(_WIN64) || defined(_WIN32)
     while((c = getchar()) != EOF) {
-
+    #endif
+    #ifdef __unix__
+    while((c = getchar()) != '^') {
+    #endif
 
         if(c == ' ') {
             
@@ -129,6 +133,11 @@ int main() {
 
     foundPoint--;
     
+    #ifdef __unix__
+    while(getchar() != '\n')
+        ;
+    #endif
+    
     // Printing the results
         printf("\nWhat you wrote but spell corrected:\n-----------------------------------------\n\n");
         printf("%s\n", pcount);
@@ -173,7 +182,6 @@ int main() {
 
     
     // saving the text
-#if defined(_WIN64) || defined(_WIN32)
     printf("\nWould you like to save the spell corrected text?: ");
     printf("\n(Y / N):");
 
@@ -189,11 +197,12 @@ int main() {
         FILE *text = fopen(name, "w");
         fprintf(text, "%s", pcount);
 
+        #if defined(_WIN64) || defined(_WIN32)
         // exit check
         printf("\nPress Enter to Exit:");
         scanf("Exit Check");
+        #endif
     }
-#endif
 
     return 0;
 }
