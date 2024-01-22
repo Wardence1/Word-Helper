@@ -139,7 +139,7 @@ int main() {
     #endif
     
     // Printing the results
-        printf("\nWhat you wrote but spell corrected:\n-----------------------------------------\n\n");
+        printf("\nWhat you wrote but space corrected:\n-----------------------------------------\n\n");
         printf("%s\n", pcount);
         printf("-----------------------------------------");
 
