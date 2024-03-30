@@ -189,7 +189,7 @@ int main() {
     scanf("%c", &response);
 
     if(response == 'y' || response == 'Y') {
-        char name[15];
+        char name[17];
         printf("What would you like to name the file?: ");
         getName(name, 12);
         append(name, ".txt");
